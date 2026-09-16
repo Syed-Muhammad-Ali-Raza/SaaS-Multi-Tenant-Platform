@@ -1,0 +1,59 @@
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +35ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +5ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuditModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMailModule dependencies initialized[39m[38;5;3m +2ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAdminModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mOrganizationsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +52ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/refresh, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/switch-org, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/forgot-password, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/reset-password, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/api/users}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/me, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/me, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/me/change-password, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mOrganizationsController {/api}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/orgs, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/orgs, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/orgs/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/orgs/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/orgs/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/orgs/:orgId/members, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/orgs/:orgId/members/:userId, PATCH} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/orgs/:orgId/members/:userId, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/orgs/:orgId/invitations, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/orgs/:orgId/invitations, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/orgs/:orgId/invitations/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/invitations/:token, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/invitations/:token/accept, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAdminController {/api/admin}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/organizations, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/users, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/admin/audit-logs, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +33ms[39m
+[32m[Nest] 28824  - [39m09/16/2026, 6:59:58 PM [32m    LOG[39m [38;5;3m[Bootstrap] [39m[32mAPI running on http://localhost:3000/api (production: false)[39m
+[33m[Nest] 28824  - [39m09/16/2026, 7:00:54 PM [33m   WARN[39m [38;5;3m[MailService] [39m[33mResend API key not configured. Email not sent to bob@example.com (subject: You've been invited to join Demo Org)[39m
+[32m[Nest] 28824  - [39m09/16/2026, 7:00:54 PM [32m    LOG[39m [38;5;3m[MailService] [39m[32mEmail to bob@example.com: You've been invited to join Demo Org as a member.
+
+Accept your invitation here: http://localhost:3001/accept-invite?token=7f1261baedfed45346c9ad2bfac30952bac699e807003a892c748b888e40c7ad09bf78d203001999f1e22aaaf4064a4d
+
+If you didn't expect this invitation, you can ignore this email.[39m
+[33m[Nest] 28824  - [39m09/16/2026, 7:01:45 PM [33m   WARN[39m [38;5;3m[MailService] [39m[33mResend API key not configured. Email not sent to bob@example.com (subject: Reset your password)[39m
+[32m[Nest] 28824  - [39m09/16/2026, 7:01:45 PM [32m    LOG[39m [38;5;3m[MailService] [39m[32mEmail to bob@example.com: We received a request to reset your password.
+
+Reset your password here: http://localhost:3001/reset-password?token=5bc9b00ee52d0c8ae3f57d48ebd1b9e799c11d0d8db3ebafc2c3982954adea5aceb31d6295f02a1ae2cb2193a97f9247
+
+If you didn't request this, you can ignore this email. The link expires in one hour.[39m

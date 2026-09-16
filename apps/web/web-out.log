@@ -1,0 +1,30 @@
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3001
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 13.5s
+ ○ Compiling /src/middleware ...
+ ✓ Compiled /src/middleware in 1761ms (72 modules)
+ ○ Compiling /login ...
+ ✓ Compiled /login in 20.4s (879 modules)
+(node:26844) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ GET /login 200 in 21690ms
+ ○ Compiling / ...
+ ✓ Compiled / in 3.7s (694 modules)
+ GET / 200 in 4377ms
+ ✓ Compiled /login in 423ms (477 modules)
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 1818ms (897 modules)
+ ○ Compiling /admin ...
+ ✓ Compiled /admin in 1411ms (905 modules)
+ ○ Compiling /profile ...
+ ✓ Compiled /profile in 2.8s (906 modules)
+ ○ Compiling /_not-found ...
+ GET /dashboard 200 in 1181ms
+ ✓ Compiled /_not-found in 2.7s (909 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 3082ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 101ms
+ ○ Compiling /register ...
+ ✓ Compiled /register in 1568ms (915 modules)
