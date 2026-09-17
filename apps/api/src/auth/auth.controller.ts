@@ -13,13 +13,17 @@ import { Request, Response } from "express";
 import { CurrentUser } from "../common/decorators/current-user.decorator";
 import { Public } from "../common/decorators/public.decorator";
 import { AuthUser } from "../common/types/auth-user";
-import { AuthService } from "./auth.service";
+import { AuthService, AuthResponse } from "./auth.service";
 import { ForgotPasswordDto } from "./dto/forgot-password.dto";
 import { LoginDto } from "./dto/login.dto";
 import { RefreshDto } from "./dto/refresh.dto";
 import { RegisterDto } from "./dto/register.dto";
 import { ResetPasswordDto } from "./dto/reset-password.dto";
 import { SwitchOrgDto } from "./dto/switch-org.dto";
+import { VerifyEmailDto } from "./dto/verify-email.dto";
+import { DisableTwoFactorDto } from "./dto/twofa-disable.dto";
+import { EnableTwoFactorDto } from "./dto/twofa-enable.dto";
+import { VerifyTwoFactorDto } from "./dto/twofa-verify.dto";
 
 const REFRESH_COOKIE = "refresh_token";
 const REFRESH_TOKEN_MS = 7 * 24 * 60 * 60 * 1000;
@@ -57,12 +61,19 @@ export class AuthController {
     @Res({ passthrough: true }) res: Response
   ) {
     const result = await this.authService.login(dto, this.getClientInfo(req));
+
+    if ("requiresTwoFactor" in result && result.requiresTwoFactor) {
+      return result;
+    }
+
+    const authResult = result as AuthResponse;
+
     const { rawToken } = await this.authService.createRefreshTokenRecord(
-      result.user.id,
+      authResult.user.id,
       this.getClientInfo(req)
     );
     this.setRefreshTokenCookie(res, rawToken);
-    return result;
+    return authResult;
   }
 
   @Public()
@@ -98,6 +109,68 @@ export class AuthController {
     await this.authService.logout(req, { id: user.id }, this.getClientInfo(req));
     this.clearRefreshTokenCookie(res);
     return { message: "Logged out" };
+  }
+
+  @Public()
+  @Throttle({ default: { limit: 10, ttl: 60_000 } })
+  @Post("verify-email")
+  async verifyEmail(@Body() dto: VerifyEmailDto, @Req() req: Request) {
+    return this.authService.verifyEmail(dto, this.getClientInfo(req));
+  }
+
+  @Throttle({ default: { limit: 5, ttl: 60_000 } })
+  @Post("send-verification-email")
+  async sendVerificationEmail(
+    @CurrentUser() user: AuthUser,
+    @Req() req: Request
+  ) {
+    return this.authService.sendVerificationEmailForUser(
+      user.id,
+      this.getClientInfo(req)
+    );
+  }
+
+  @Post("2fa/setup")
+  async setupTwoFactor(@CurrentUser() user: AuthUser, @Req() req: Request) {
+    return this.authService.setupTwoFactor(user.id, this.getClientInfo(req));
+  }
+
+  @Post("2fa/enable")
+  async enableTwoFactor(
+    @CurrentUser() user: AuthUser,
+    @Body() dto: EnableTwoFactorDto,
+    @Req() req: Request
+  ) {
+    return this.authService.enableTwoFactor(user.id, dto, this.getClientInfo(req));
+  }
+
+  @Post("2fa/disable")
+  async disableTwoFactor(
+    @CurrentUser() user: AuthUser,
+    @Body() dto: DisableTwoFactorDto,
+    @Req() req: Request
+  ) {
+    return this.authService.disableTwoFactor(user.id, dto, this.getClientInfo(req));
+  }
+
+  @Public()
+  @Throttle({ default: { limit: 10, ttl: 60_000 } })
+  @Post("2fa/verify")
+  async verifyTwoFactor(
+    @Body() dto: VerifyTwoFactorDto,
+    @Req() req: Request,
+    @Res({ passthrough: true }) res: Response
+  ) {
+    const result = await this.authService.verifyTwoFactor(
+      dto,
+      this.getClientInfo(req)
+    );
+    const { rawToken } = await this.authService.createRefreshTokenRecord(
+      result.user.id,
+      this.getClientInfo(req)
+    );
+    this.setRefreshTokenCookie(res, rawToken);
+    return result;
   }
 
   @Get("me")

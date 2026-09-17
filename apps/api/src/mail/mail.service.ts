@@ -74,4 +74,13 @@ export class MailService {
       html: `<p>We received a request to reset your password.</p><p><a href="${params.resetUrl}">Reset your password</a></p><p>If you didn't request this, you can ignore this email. The link expires in one hour.</p>`,
     });
   }
+
+  async sendVerificationEmail(params: { to: string; verifyUrl: string }) {
+    await this.send({
+      to: params.to,
+      subject: "Verify your email address",
+      text: `Confirm your email address to secure your account.\n\nVerify your email here: ${params.verifyUrl}\n\nIf you didn't create an account, you can ignore this email.`,
+      html: `<p>Confirm your email address to secure your account.</p><p><a href="${params.verifyUrl}">Verify your email</a></p><p>If you didn't create an account, you can ignore this email.</p>`,
+    });
+  }
 }

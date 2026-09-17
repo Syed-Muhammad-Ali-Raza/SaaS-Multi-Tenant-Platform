@@ -6,6 +6,7 @@ export interface User {
   name: string;
   isSuperAdmin: boolean;
   emailVerified: boolean;
+  twoFactorEnabled: boolean;
   lastLoginAt: Date | null;
   createdAt: Date;
   updatedAt: Date;

@@ -9,6 +9,7 @@ import { acceptInviteSchema, type AcceptInviteInput } from "saas-shared";
 import { api } from "@/lib/api";
 import { getErrorMessage } from "@/lib/utils";
 import { useAuthStore } from "@/stores/authStore";
+import type { AuthResponse } from "@/types";
 
 interface InvitationDetails {
   id: string;
@@ -52,7 +53,7 @@ function AcceptInviteForm() {
         { name: data.name, password: data.password }
       );
       useAuthStore.getState().setAuth({
-        user: { id: "temp", email: invitation?.email ?? "", name: data.name, isSuperAdmin: false, emailVerified: false, lastLoginAt: null, createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() },
+          user: { id: "temp", email: invitation?.email ?? "", name: data.name, isSuperAdmin: false, emailVerified: false, twoFactorEnabled: false, lastLoginAt: null, createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() },
         accessToken: res.data.accessToken,
         memberships: [],
         activeOrgId: res.data.organization.id,

@@ -20,6 +20,12 @@ enum MembershipStatus {
   SUSPENDED
 }
 
+enum WebhookDeliveryStatus {
+  PENDING
+  DELIVERED
+  FAILED
+}
+
 model User {
   id           String   @id @default(uuid())
   email        String   @unique
@@ -28,14 +34,23 @@ model User {
   isSuperAdmin Boolean  @default(false)
   emailVerified Boolean @default(false)
   lastLoginAt  DateTime?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
 
-  memberships       Membership[]
-  refreshTokens     RefreshToken[]
-  invitationsSent   Invitation[]   @relation("InvitedBy")
-  passwordResets    PasswordReset[]
-  auditLogs         AuditLog[]     @relation("Actor")
+  twoFactorEnabled    Boolean  @default(false)
+  twoFactorSecret     String?
+  twoFactorBackupCodes String?
+  loginAttempts       Int      @default(0)
+  lockedUntil         DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  memberships             Membership[]
+  refreshTokens           RefreshToken[]
+  invitationsSent         Invitation[]            @relation("InvitedBy")
+  passwordResets          PasswordReset[]
+  auditLogs               AuditLog[]              @relation("Actor")
+  emailVerificationTokens EmailVerificationToken[]
+  notifications           Notification[]
 
   @@index([email])
 }
@@ -49,9 +64,18 @@ model Organization {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  memberships  Membership[]
-  invitations  Invitation[]
-  auditLogs    AuditLog[]
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+  subscriptionStatus   String?
+  billingEmail         String?
+
+  memberships       Membership[]
+  invitations       Invitation[]
+  auditLogs         AuditLog[]
+  apiKeys           ApiKey[]
+  webhookEndpoints  WebhookEndpoint[]
+  apiRequestLogs    ApiRequestLog[]
+  notifications     Notification[]
 
   @@index([slug])
 }
@@ -118,6 +142,102 @@ model PasswordReset {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
+}
+
+model EmailVerificationToken {
+  id        String    @id @default(uuid())
+  userId    String
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Notification {
+  id             String   @id @default(uuid())
+  userId         String
+  organizationId String?
+  type           String
+  title          String
+  body           String?
+  data           Json     @default("{}")
+  readAt         DateTime?
+  createdAt      DateTime @default(now())
+
+  user         User?         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  organization Organization? @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([organizationId])
+}
+
+model ApiKey {
+  id             String    @id @default(uuid())
+  organizationId String
+  name           String
+  keyHash        String    @unique
+  prefix         String
+  lastUsedAt     DateTime?
+  expiresAt      DateTime?
+  revokedAt      DateTime?
+  createdAt      DateTime  @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId])
+}
+
+model ApiRequestLog {
+  id             String   @id @default(uuid())
+  organizationId String
+  apiKeyId       String?
+  method         String
+  path           String
+  statusCode     Int?
+  ipAddress      String?
+  durationMs     Int?
+  createdAt      DateTime @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, createdAt])
+}
+
+model WebhookEndpoint {
+  id             String    @id @default(uuid())
+  organizationId String
+  url            String
+  secret         String
+  events         Json      @default("[]")
+  active         Boolean   @default(true)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  organization Organization    @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  deliveries   WebhookDelivery[]
+
+  @@index([organizationId])
+}
+
+model WebhookDelivery {
+  id            String              @id @default(uuid())
+  endpointId    String
+  event         String
+  payload       Json                @default("{}")
+  status        WebhookDeliveryStatus @default(PENDING)
+  responseCode  Int?
+  responseBody  String?
+  attempts      Int                 @default(0)
+  resolvedAt    DateTime?
+  createdAt     DateTime            @default(now())
+
+  endpoint WebhookEndpoint @relation(fields: [endpointId], references: [id], onDelete: Cascade)
+
+  @@index([endpointId, createdAt])
 }
 
 model AuditLog {

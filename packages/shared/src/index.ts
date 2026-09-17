@@ -1,4 +1,6 @@
 export { Role, MembershipStatus } from "./enums";
+export { PLANS, isPlan } from "./plans";
+export type { PlanConfig, PlanLimits, PlanId } from "./plans";
 export type {
   User,
   Organization,

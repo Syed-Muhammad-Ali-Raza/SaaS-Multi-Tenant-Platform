@@ -10,15 +10,21 @@ export function useLoginMutation() {
 
   return useMutation({
     mutationFn: async (data: LoginInput) => {
-      const res = await api.post<AuthResponse>("/api/auth/login", data);
+      const res = await api.post<AuthResponse | { requiresTwoFactor: true; mfaToken: string }>(
+        "/api/auth/login",
+        data
+      );
       return res.data;
     },
     onSuccess: (data) => {
+      if ("requiresTwoFactor" in data && data.requiresTwoFactor) {
+        return;
+      }
       setAuth({
-        user: data.user,
-        accessToken: data.accessToken,
-        memberships: data.memberships,
-        activeOrgId: data.activeOrg?.id,
+        user: (data as AuthResponse).user,
+        accessToken: (data as AuthResponse).accessToken,
+        memberships: (data as AuthResponse).memberships,
+        activeOrgId: (data as AuthResponse).activeOrg?.id,
       });
       queryClient.invalidateQueries();
     },

@@ -70,6 +70,31 @@ export class TokenService {
     return this.generateAccessToken(payload);
   }
 
+  async generateMfaToken(userId: string): Promise<string> {
+    return this.jwtService.signAsync(
+      { sub: userId, purpose: "mfa" },
+      {
+        secret: this.configService.get<string>("jwt.accessSecret"),
+        expiresIn: "5m",
+      }
+    );
+  }
+
+  async verifyMfaToken(token: string): Promise<string> {
+    const payload = await this.jwtService.verifyAsync<{
+      sub: string;
+      purpose?: string;
+    }>(token, {
+      secret: this.configService.get<string>("jwt.accessSecret"),
+    });
+
+    if (!payload?.sub || payload.purpose !== "mfa") {
+      throw new Error("Invalid MFA token");
+    }
+
+    return payload.sub;
+  }
+
   private parseExpirationToMs(expiration: string): number {
     const match = /^(\d+)([smhd])$/.exec(expiration);
     if (!match) {

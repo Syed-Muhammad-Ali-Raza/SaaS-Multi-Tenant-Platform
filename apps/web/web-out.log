@@ -28,3 +28,500 @@
  GET /.well-known/appspecific/com.chrome.devtools.json 404 in 101ms
  ○ Compiling /register ...
  ✓ Compiled /register in 1568ms (915 modules)
+ ✓ Compiled in 11.2s (914 modules)
+ ✓ Compiled in 6.8s (928 modules)
+ ✓ Compiled in 7.7s (928 modules)
+ ✓ Compiled in 3.9s (928 modules)
+ ✓ Compiled in 2.1s (423 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 5.2s (931 modules)
+ GET /_next/static/css/app/layout.css?v=1789583911893 404 in 6833ms
+ GET /_next/static/css/app/layout.css?v=1789583918914 404 in 50ms
+ ✓ Compiled in 2.6s (928 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1089ms (917 modules)
+ ⨯ Error: Cannot find module './874.js'
+Require stack:
+- C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+- C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\_not-found\page.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1569:15)
+    at C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1123:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1147:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1174:12)
+    at Module._load (node:internal/modules/cjs/loader:1346:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1679:12)
+    at mod.require (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:196:16)
+    at __webpack_require__.f.require (C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\_not-found\page.js:1:3937
+    at Object.<anonymous> (C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\_not-found\page.js:1:3978)
+    at Module._compile (node:internal/modules/cjs/loader:1934:14)
+    at Object..js (node:internal/modules/cjs/loader:2074:10)
+    at Module.load (node:internal/modules/cjs/loader:1656:32)
+    at Module._load (node:internal/modules/cjs/loader:1448:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1679:12)
+    at mod.require (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:196:16)
+    at requirePage (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderErrorToResponseImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:2090:30)
+    at async pipe.req.req (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:2056:30)
+    at async DevServer.pipeImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:922:25)
+    at async C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js:374:24)
+    at async requestHandlerImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Senarios\\Desktop\\h\\apps\\web\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\apps\\web\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 6.3s (1143 modules)
+ GET /_next/static/css/app/layout.css?v=1789584097304 500 in 20067ms
+ GET /_next/static/css/app/layout.css?v=1789584118034 404 in 251ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\lucide-react@0.441.0_react@18.3.1.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/lucide-react@0.441.0_react@18.3.1' in C:\Users\Senarios\Desktop\h\apps\web\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\lucide-react@0.441.0_react@18.3.1.js', but to 'Error: Can't resolve './vendor-chunks/lucide-react@0.441.0_react@18.3.1' in 'C:\Users\Senarios\Desktop\h\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/lucide-react@0.441.0_react@18.3.1 (expected C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\lucide-react@0.441.0_react@18.3.1.js)
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\(app)\dashboard\page.js
+<w>  at file C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\(app)\dashboard\page.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\handle-externals.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\handle-externals.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/es-object-atoms@1.1.2' in C:\Users\Senarios\Desktop\h\apps\web\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\es-object-atoms@1.1.2.js', but to 'Error: Can't resolve './vendor-chunks/es-object-atoms@1.1.2' in 'C:\Users\Senarios\Desktop\h\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/es-object-atoms@1.1.2 (expected C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\es-object-atoms@1.1.2.js)
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\(app)\dashboard\page.js
+<w>  at file C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\(app)\dashboard\page.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\handle-externals.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\handle-externals.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\lucide-react@0.441.0_react@18.3.1.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/lucide-react@0.441.0_react@18.3.1' in C:\Users\Senarios\Desktop\h\apps\web\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\lucide-react@0.441.0_react@18.3.1.js', but to 'Error: Can't resolve './vendor-chunks/lucide-react@0.441.0_react@18.3.1' in 'C:\Users\Senarios\Desktop\h\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/lucide-react@0.441.0_react@18.3.1 (expected C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\lucide-react@0.441.0_react@18.3.1.js)
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\_not-found\page.js
+<w>  at file C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/es-object-atoms@1.1.2' in C:\Users\Senarios\Desktop\h\apps\web\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\es-object-atoms@1.1.2.js', but to 'Error: Can't resolve './vendor-chunks/es-object-atoms@1.1.2' in 'C:\Users\Senarios\Desktop\h\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/es-object-atoms@1.1.2 (expected C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\es-object-atoms@1.1.2.js)
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\_not-found\page.js
+<w>  at file C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/has-tostringtag@1.0.2' in C:\Users\Senarios\Desktop\h\apps\web\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\has-tostringtag@1.0.2.js', but to 'Error: Can't resolve './vendor-chunks/has-tostringtag@1.0.2' in 'C:\Users\Senarios\Desktop\h\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/has-tostringtag@1.0.2 (expected C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\has-tostringtag@1.0.2.js)
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\_not-found\page.js
+<w>  at file C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/hasown@2.0.4' in C:\Users\Senarios\Desktop\h\apps\web\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\hasown@2.0.4.js', but to 'Error: Can't resolve './vendor-chunks/hasown@2.0.4' in 'C:\Users\Senarios\Desktop\h\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/hasown@2.0.4 (expected C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\hasown@2.0.4.js)
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\_not-found\page.js
+<w>  at file C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/es-define-property@1.0.1' in C:\Users\Senarios\Desktop\h\apps\web\.next\server for build dependencies doesn't lead to expected result 'C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\es-define-property@1.0.1.js', but to 'Error: Can't resolve './vendor-chunks/es-define-property@1.0.1' in 'C:\Users\Senarios\Desktop\h\apps\web\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/es-define-property@1.0.1 (expected C:\Users\Senarios\Desktop\h\apps\web\.next\server\vendor-chunks\es-define-property@1.0.1.js)
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+<w>  at file C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\_not-found\page.js
+<w>  at file C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\_not-found\page.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+ ✓ Compiled in 2.3s (1152 modules)
+ ✓ Compiled in 942ms (608 modules)
+ ✓ Compiled in 946ms (1152 modules)
+ GET /dashboard 200 in 1166ms
+ ○ Compiling /forgot-password ...
+ ✓ Compiled /forgot-password in 1944ms (1158 modules)
+ ✓ Compiled in 845ms (610 modules)
+ ⨯ Error: Cannot find module './874.js'
+Require stack:
+- C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+- C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\(auth)\forgot-password\page.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1569:15)
+    at C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1123:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1147:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1174:12)
+    at Module._load (node:internal/modules/cjs/loader:1346:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1679:12)
+    at mod.require (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:196:16)
+    at __webpack_require__.f.require (C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\(app)\admin\page.js:1:7011
+    at Object.<anonymous> (C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\(app)\admin\page.js:1:7068)
+    at Module._compile (node:internal/modules/cjs/loader:1934:14)
+    at Object..js (node:internal/modules/cjs/loader:2074:10)
+    at Module.load (node:internal/modules/cjs/loader:1656:32)
+    at Module._load (node:internal/modules/cjs/loader:1448:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1679:12)
+    at mod.require (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:196:16)
+    at requirePage (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Senarios\\Desktop\\h\\apps\\web\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\apps\\web\\.next\\server\\app\\(auth)\\forgot-password\\page.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/admin'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 660ms (1146 modules)
+ ⨯ Error: Cannot find module './192.js'
+Require stack:
+- C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+- C:\Users\Senarios\Desktop\h\apps\web\.next\server\pages\_document.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1569:15)
+    at C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1123:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1147:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1174:12)
+    at Module._load (node:internal/modules/cjs/loader:1346:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1679:12)
+    at mod.require (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:196:16)
+    at __webpack_require__.f.require (C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Senarios\Desktop\h\apps\web\.next\server\pages\_document.js:1:335
+    at Object.<anonymous> (C:\Users\Senarios\Desktop\h\apps\web\.next\server\pages\_document.js:1:376)
+    at Module._compile (node:internal/modules/cjs/loader:1934:14)
+    at Object..js (node:internal/modules/cjs/loader:2074:10)
+    at Module.load (node:internal/modules/cjs/loader:1656:32)
+    at Module._load (node:internal/modules/cjs/loader:1448:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1679:12)
+    at mod.require (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:196:16)
+    at requirePage (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\next-server.js:714:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Senarios\\Desktop\\h\\apps\\web\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\apps\\web\\.next\\server\\pages\\_document.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ ⨯ Error: Cannot find module './874.js'
+Require stack:
+- C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+- C:\Users\Senarios\Desktop\h\apps\web\.next\server\pages\_document.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1569:15)
+    at C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1123:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1147:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1174:12)
+    at Module._load (node:internal/modules/cjs/loader:1346:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1679:12)
+    at mod.require (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:196:16)
+    at __webpack_require__.f.require (C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\(app)\admin\page.js:1:7011
+    at Object.<anonymous> (C:\Users\Senarios\Desktop\h\apps\web\.next\server\app\(app)\admin\page.js:1:7068)
+    at Module._compile (node:internal/modules/cjs/loader:1934:14)
+    at Object..js (node:internal/modules/cjs/loader:2074:10)
+    at Module.load (node:internal/modules/cjs/loader:1656:32)
+    at Module._load (node:internal/modules/cjs/loader:1448:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1679:12)
+    at mod.require (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:196:16)
+    at requirePage (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Senarios\\Desktop\\h\\apps\\web\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\apps\\web\\.next\\server\\pages\\_document.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/admin'
+}
+ ⨯ Error: Cannot find module './192.js'
+Require stack:
+- C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js
+- C:\Users\Senarios\Desktop\h\apps\web\.next\server\pages\_document.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1569:15)
+    at C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require-hook.js:55:36
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1123:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1147:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1174:12)
+    at Module._load (node:internal/modules/cjs/loader:1346:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1679:12)
+    at mod.require (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:196:16)
+    at __webpack_require__.f.require (C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:198:28)
+    at C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\Senarios\Desktop\h\apps\web\.next\server\webpack-runtime.js:162:22)
+    at C:\Users\Senarios\Desktop\h\apps\web\.next\server\pages\_document.js:1:335
+    at Object.<anonymous> (C:\Users\Senarios\Desktop\h\apps\web\.next\server\pages\_document.js:1:376)
+    at Module._compile (node:internal/modules/cjs/loader:1934:14)
+    at Object..js (node:internal/modules/cjs/loader:2074:10)
+    at Module.load (node:internal/modules/cjs/loader:1656:32)
+    at Module._load (node:internal/modules/cjs/loader:1448:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1679:12)
+    at mod.require (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:196:16)
+    at requirePage (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js:72:65
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js:71:33)
+    at async DevServer.findPageComponentsImpl (C:\Users\Senarios\Desktop\h\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\next-server.js:714:36) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Senarios\\Desktop\\h\\apps\\web\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\apps\\web\\.next\\server\\pages\\_document.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\Senarios\\Desktop\\h\\node_modules\\.pnpm\\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+ GET /admin 500 in 30ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 914ms (1149 modules)
+ GET /_next/static/chunks/fallback/main.js 404 in 1430ms
+ GET /_next/static/chunks/fallback/pages/_app.js 404 in 1425ms
+ GET /_next/static/chunks/fallback/webpack.js 404 in 1444ms
+ GET /_next/static/chunks/fallback/react-refresh.js 404 in 1429ms
+ GET /_next/static/chunks/fallback/pages/_error.js 404 in 1424ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 59ms
+ GET /admin 200 in 217ms
+ GET /_next/static/css/app/layout.css?v=1789630857463 404 in 51ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 221ms
+ GET /_next/static/chunks/main-app.js?v=1789630857463 404 in 351ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 343ms
+ GET /_next/static/chunks/app/(app)/admin/page.js 404 in 351ms
+ GET /_next/static/chunks/app/(app)/layout.js 404 in 231ms
+ GET /dashboard 200 in 290ms
+ GET /_next/static/css/app/layout.css?v=1789630860583 404 in 110ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 41ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 185ms
+ GET /_next/static/chunks/main-app.js?v=1789630860583 404 in 190ms
+ GET /_next/static/chunks/app/(app)/dashboard/page.js 404 in 182ms
+ GET /_next/static/chunks/app/(app)/layout.js 404 in 181ms
+ GET /dashboard 200 in 42ms
+ GET /_next/static/css/app/layout.css?v=1789630863485 404 in 45ms
+ GET /_next/static/chunks/main-app.js?v=1789630863485 404 in 147ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 141ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 31ms
+ GET /_next/static/chunks/app/(app)/dashboard/page.js 404 in 134ms
+ GET /_next/static/chunks/app/(app)/layout.js 404 in 134ms
+ GET /dashboard 200 in 76ms
+ GET /_next/static/css/app/layout.css?v=1789630865388 404 in 200ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 251ms
+ GET /_next/static/chunks/main-app.js?v=1789630865388 404 in 271ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 266ms
+ GET /_next/static/chunks/app/(app)/dashboard/page.js 404 in 265ms
+ GET /_next/static/chunks/app/(app)/layout.js 404 in 264ms
+ ✓ Compiled in 6.7s (1226 modules)
+ ✓ Compiled in 2.2s (1154 modules)
+ ✓ Compiled in 2.5s (1154 modules)

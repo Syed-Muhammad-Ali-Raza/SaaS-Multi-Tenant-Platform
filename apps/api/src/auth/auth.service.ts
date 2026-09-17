@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   ConflictException,
   Injectable,
   UnauthorizedException,
@@ -6,6 +7,13 @@ import {
 import { ConfigService } from "@nestjs/config";
 import { randomBytes } from "crypto";
 import { Request } from "express";
+import {
+  generateSync as generateOtp,
+  generateSecret as generateOtpSecret,
+  generateURI as generateOtpUri,
+  verifySync as verifyOtp,
+} from "otplib";
+import * as QRCode from "qrcode";
 import { Role, Organization, User } from "saas-shared";
 import { AuditService } from "../audit/audit.service";
 import { MailService } from "../mail/mail.service";
@@ -15,6 +23,10 @@ import { LoginDto } from "./dto/login.dto";
 import { RegisterDto } from "./dto/register.dto";
 import { ResetPasswordDto } from "./dto/reset-password.dto";
 import { SwitchOrgDto } from "./dto/switch-org.dto";
+import { VerifyEmailDto } from "./dto/verify-email.dto";
+import { DisableTwoFactorDto } from "./dto/twofa-disable.dto";
+import { EnableTwoFactorDto } from "./dto/twofa-enable.dto";
+import { VerifyTwoFactorDto } from "./dto/twofa-verify.dto";
 import { PasswordService } from "./password.service";
 import { TokenService } from "./token.service";
 
@@ -35,6 +47,14 @@ export interface AuthResponse {
   }[];
   activeOrg: Organization | null;
 }
+
+export interface MfaRequiredResponse {
+  requiresTwoFactor: true;
+  mfaToken: string;
+}
+
+const MAX_LOGIN_ATTEMPTS = 5;
+const LOCKOUT_MINUTES = 15;
 
 @Injectable()
 export class AuthService {
@@ -70,10 +90,7 @@ export class AuthService {
       });
 
       const org = await tx.organization.create({
-        data: {
-          name: dto.orgName,
-          slug,
-        },
+        data: { name: dto.orgName, slug },
       });
 
       await tx.membership.create({
@@ -96,6 +113,8 @@ export class AuthService {
       ipAddress: client.ipAddress,
     });
 
+    await this.sendVerificationEmail(user.id, client, user.email);
+
     const accessToken = await this.tokenService.generateAccessToken({
       id: user.id,
       email: user.email,
@@ -115,7 +134,10 @@ export class AuthService {
     return this.toResponse(accessToken, user, [membership], org);
   }
 
-  async login(dto: LoginDto, client: ClientInfo): Promise<AuthResponse> {
+  async login(
+    dto: LoginDto,
+    client: ClientInfo
+  ): Promise<AuthResponse | MfaRequiredResponse> {
     const user = await this.prisma.user.findUnique({
       where: { email: dto.email.toLowerCase() },
       include: {
@@ -131,43 +153,316 @@ export class AuthService {
       throw new UnauthorizedException("Invalid email or password");
     }
 
-    const valid = await this.passwordService.verify(user.passwordHash, dto.password);
+    if (user.lockedUntil && user.lockedUntil > new Date()) {
+      const minutes = Math.ceil(
+        (user.lockedUntil.getTime() - Date.now()) / 60_000
+      );
+      throw new UnauthorizedException(
+        `Account locked. Try again in ${minutes} minute${minutes > 1 ? "s" : ""}`
+      );
+    }
+
+    const valid = await this.passwordService.verify(
+      user.passwordHash,
+      dto.password
+    );
+
     if (!valid) {
+      const attempts = (user.loginAttempts ?? 0) + 1;
+      const lockUntil =
+        attempts >= MAX_LOGIN_ATTEMPTS
+          ? new Date(Date.now() + LOCKOUT_MINUTES * 60_000)
+          : undefined;
+
+      await this.prisma.user.update({
+        where: { id: user.id },
+        data: {
+          loginAttempts: attempts >= MAX_LOGIN_ATTEMPTS ? 0 : attempts,
+          ...(lockUntil ? { lockedUntil: lockUntil } : {}),
+        },
+      });
+
       await this.auditService.log({
         actorId: user.id,
-        organizationId: null,
         action: "auth.login_failed",
-        metadata: { email: user.email },
+        metadata: { attempts },
         ipAddress: client.ipAddress,
       });
+
       throw new UnauthorizedException("Invalid email or password");
     }
 
     await this.prisma.user.update({
       where: { id: user.id },
-      data: { lastLoginAt: new Date() },
+      data: { loginAttempts: 0, lockedUntil: null },
     });
 
-    const activeOrg = user.memberships[0]?.organization ?? null;
-    const activeRole = user.memberships[0]?.role ?? null;
+    if (user.twoFactorEnabled) {
+      const mfaToken = await this.tokenService.generateMfaToken(user.id);
 
-    const accessToken = await this.tokenService.generateAccessToken({
-      id: user.id,
-      email: user.email,
-      isSuperAdmin: user.isSuperAdmin,
-      orgId: activeOrg?.id,
-      role: activeRole,
+      await this.auditService.log({
+        actorId: user.id,
+        action: "auth.mfa_challenge",
+        ipAddress: client.ipAddress,
+      });
+
+      return { requiresTwoFactor: true, mfaToken };
+    }
+
+    return this.finalizeLogin(user, user.memberships, client);
+  }
+
+  async verifyTwoFactor(
+    dto: VerifyTwoFactorDto,
+    client: ClientInfo
+  ): Promise<AuthResponse> {
+    let userId: string;
+
+    try {
+      userId = await this.tokenService.verifyMfaToken(dto.mfaToken);
+    } catch {
+      throw new UnauthorizedException("Invalid or expired MFA token");
+    }
+
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      include: {
+        memberships: {
+          where: { status: "ACTIVE" },
+          include: { organization: true },
+          orderBy: { createdAt: "asc" },
+        },
+      },
+    });
+
+    if (!user || !user.twoFactorEnabled || !user.twoFactorSecret) {
+      throw new UnauthorizedException("Two-factor authentication is not configured");
+    }
+
+    const code = dto.code.replace(/\s/g, "").toUpperCase();
+    const isTotp = /^\d{6}$/.test(code);
+
+    if (isTotp) {
+      const valid = verifyOtp({
+        token: code,
+        secret: user.twoFactorSecret,
+      }).valid;
+
+      if (!valid) {
+        await this.auditService.log({
+          actorId: user.id,
+          action: "auth.mfa_failed",
+          ipAddress: client.ipAddress,
+        });
+        throw new UnauthorizedException("Invalid authentication code");
+      }
+    } else {
+      const backupCodes: string[] = user.twoFactorBackupCodes
+        ? JSON.parse(user.twoFactorBackupCodes)
+        : [];
+
+      const matched = backupCodes.find(
+        (c) => c.replace(/-/g, "") === code.replace(/-/g, "")
+      );
+
+      if (!matched) {
+        await this.auditService.log({
+          actorId: user.id,
+          action: "auth.mfa_failed",
+          metadata: { type: "backup" },
+          ipAddress: client.ipAddress,
+        });
+        throw new UnauthorizedException("Invalid authentication code");
+      }
+
+      const updatedCodes = backupCodes.filter((c) => c !== matched);
+      await this.prisma.user.update({
+        where: { id: user.id },
+        data: {
+          twoFactorBackupCodes: JSON.stringify(updatedCodes),
+        },
+      });
+    }
+
+    await this.auditService.log({
+      actorId: user.id,
+      action: "auth.mfa_verified",
+      ipAddress: client.ipAddress,
+    });
+
+    return this.finalizeLogin(user, user.memberships, client);
+  }
+
+  async verifyEmail(
+    dto: VerifyEmailDto,
+    client: ClientInfo
+  ): Promise<{ message: string }> {
+    const tokenHash = this.tokenService.hashToken(dto.token);
+
+    const record = await this.prisma.emailVerificationToken.findUnique({
+      where: { tokenHash },
+    });
+
+    if (!record || record.usedAt || record.expiresAt < new Date()) {
+      throw new BadRequestException("Invalid or expired verification token");
+    }
+
+    await this.prisma.$transaction(async (tx) => {
+      await tx.user.update({
+        where: { id: record.userId },
+        data: { emailVerified: true },
+      });
+
+      await tx.emailVerificationToken.update({
+        where: { id: record.id },
+        data: { usedAt: new Date() },
+      });
+    });
+
+    await this.auditService.log({
+      actorId: record.userId,
+      action: "auth.email_verified",
+      ipAddress: client.ipAddress,
+    });
+
+    return { message: "Email verified successfully" };
+  }
+
+  async sendVerificationEmailForUser(
+    userId: string,
+    client: ClientInfo
+  ): Promise<{ message: string }> {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: { id: true, email: true, emailVerified: true },
+    });
+
+    if (!user) throw new UnauthorizedException("User not found");
+    if (user.emailVerified)
+      return { message: "Email is already verified" };
+
+    await this.sendVerificationEmail(userId, client, user.email);
+    return { message: "Verification email sent" };
+  }
+
+  async setupTwoFactor(
+    userId: string,
+    client: ClientInfo
+  ): Promise<{ secret: string; otpauthUrl: string; backupCodes: string[] }> {
+    const user = await this.prisma.user.findUnique({ where: { id: userId } });
+    if (!user) throw new UnauthorizedException("User not found");
+    if (user.twoFactorEnabled)
+      throw new BadRequestException("2FA is already enabled");
+
+    const secret = generateOtpSecret();
+    const backupCodes = this.generateBackupCodes();
+
+    await this.prisma.user.update({
+      where: { id: user.id },
+      data: {
+        twoFactorSecret: secret,
+        twoFactorBackupCodes: JSON.stringify(backupCodes),
+      },
+    });
+
+    const appName = "SaaS Platform";
+    const otpauthUrl = generateOtpUri({
+      issuer: appName,
+      label: user.email,
+      secret,
+      strategy: "totp",
     });
 
     await this.auditService.log({
       actorId: user.id,
-      organizationId: activeOrg?.id ?? null,
-      action: "auth.login",
-      metadata: {},
+      action: "auth.2fa_setup",
       ipAddress: client.ipAddress,
     });
 
-    return this.toResponse(accessToken, user, user.memberships, activeOrg);
+    return { secret, otpauthUrl, backupCodes };
+  }
+
+  async enableTwoFactor(
+    userId: string,
+    dto: EnableTwoFactorDto,
+    client: ClientInfo
+  ): Promise<{ backupCodes: string[] }> {
+    const user = await this.prisma.user.findUnique({ where: { id: userId } });
+    if (!user) throw new UnauthorizedException("User not found");
+    if (user.twoFactorEnabled)
+      throw new BadRequestException("2FA is already enabled");
+    if (!user.twoFactorSecret)
+      throw new BadRequestException("Call /auth/2fa/setup first");
+
+    const valid = verifyOtp({
+      token: dto.code,
+      secret: user.twoFactorSecret,
+    }).valid;
+
+    if (!valid) {
+      throw new BadRequestException("Invalid code. Check your authenticator app.");
+    }
+
+    const backupCodes = this.generateBackupCodes();
+
+    await this.prisma.user.update({
+      where: { id: user.id },
+      data: {
+        twoFactorEnabled: true,
+        twoFactorBackupCodes: JSON.stringify(backupCodes),
+      },
+    });
+
+    await this.auditService.log({
+      actorId: user.id,
+      action: "auth.2fa_enabled",
+      ipAddress: client.ipAddress,
+    });
+
+    return { backupCodes };
+  }
+
+  async disableTwoFactor(
+    userId: string,
+    dto: DisableTwoFactorDto,
+    client: ClientInfo
+  ): Promise<{ message: string }> {
+    const user = await this.prisma.user.findUnique({ where: { id: userId } });
+    if (!user) throw new UnauthorizedException("User not found");
+    if (!user.twoFactorEnabled)
+      throw new BadRequestException("2FA is not enabled");
+    if (!user.passwordHash) throw new UnauthorizedException("No password set");
+
+    const passwordValid = await this.passwordService.verify(
+      user.passwordHash,
+      dto.currentPassword
+    );
+    if (!passwordValid)
+      throw new UnauthorizedException("Incorrect password");
+
+    const codeValid = user.twoFactorSecret
+      ? verifyOtp({ token: dto.code, secret: user.twoFactorSecret }).valid
+      : false;
+
+    if (!codeValid)
+      throw new BadRequestException("Invalid authentication code");
+
+    await this.prisma.user.update({
+      where: { id: user.id },
+      data: {
+        twoFactorEnabled: false,
+        twoFactorSecret: null,
+        twoFactorBackupCodes: null,
+      },
+    });
+
+    await this.auditService.log({
+      actorId: user.id,
+      action: "auth.2fa_disabled",
+      ipAddress: client.ipAddress,
+    });
+
+    return { message: "2FA disabled" };
   }
 
   async refresh(
@@ -197,7 +492,6 @@ export class AuthService {
     }
 
     if (record.revoked) {
-      // Reuse of a revoked token strongly suggests theft.
       await this.prisma.refreshToken.updateMany({
         where: { userId: record.userId },
         data: { revoked: true },
@@ -233,7 +527,6 @@ export class AuthService {
       role = user.memberships[0]?.role ?? null;
     }
 
-    // Rotation: revoke this token and issue a fresh one.
     await this.prisma.refreshToken.update({
       where: { id: record.id },
       data: { revoked: true },
@@ -290,6 +583,7 @@ export class AuthService {
         name: true,
         isSuperAdmin: true,
         emailVerified: true,
+        twoFactorEnabled: true,
         createdAt: true,
         updatedAt: true,
       },
@@ -330,17 +624,10 @@ export class AuthService {
 
     const user = await this.prisma.user.findUnique({
       where: { id: userId },
-      select: {
-        id: true,
-        email: true,
-        isSuperAdmin: true,
-        name: true,
-      },
+      select: { id: true, email: true, isSuperAdmin: true, name: true },
     });
 
-    if (!user) {
-      throw new UnauthorizedException("User no longer exists");
-    }
+    if (!user) throw new UnauthorizedException("User no longer exists");
 
     const accessToken = await this.tokenService.generateAccessToken({
       id: user.id,
@@ -358,10 +645,7 @@ export class AuthService {
       ipAddress: client.ipAddress,
     });
 
-    return {
-      accessToken,
-      organization: membership.organization,
-    };
+    return { accessToken, organization: membership.organization };
   }
 
   async forgotPassword(dto: ForgotPasswordDto, client: ClientInfo): Promise<void> {
@@ -369,29 +653,19 @@ export class AuthService {
       where: { email: dto.email.toLowerCase() },
     });
 
-    // Always respond identically to prevent email enumeration.
-    if (!user) {
-      return;
-    }
+    if (!user) return;
 
     const rawToken = this.tokenService.generateRawRefreshToken();
     const tokenHash = this.tokenService.hashToken(rawToken);
     const expiresAt = new Date(Date.now() + 60 * 60 * 1000);
 
     await this.prisma.passwordReset.create({
-      data: {
-        userId: user.id,
-        tokenHash,
-        expiresAt,
-      },
+      data: { userId: user.id, tokenHash, expiresAt },
     });
 
     const resetUrl = `${this.configService.get<string>("frontendUrl")}/reset-password?token=${rawToken}`;
 
-    await this.mailService.sendPasswordReset({
-      to: user.email,
-      resetUrl,
-    });
+    await this.mailService.sendPasswordReset({ to: user.email, resetUrl });
 
     await this.auditService.log({
       actorId: user.id,
@@ -425,7 +699,6 @@ export class AuthService {
         data: { usedAt: new Date() },
       });
 
-      // Sign out every other session.
       await tx.refreshToken.updateMany({
         where: { userId: record.userId, revoked: false },
         data: { revoked: true },
@@ -461,6 +734,65 @@ export class AuthService {
     return { rawToken, expiresAt };
   }
 
+  private async finalizeLogin(
+    user: any,
+    memberships: any[],
+    client: ClientInfo
+  ): Promise<AuthResponse> {
+    await this.prisma.user.update({
+      where: { id: user.id },
+      data: { lastLoginAt: new Date() },
+    });
+
+    const activeOrg = memberships[0]?.organization ?? null;
+    const activeRole = memberships[0]?.role ?? null;
+
+    const accessToken = await this.tokenService.generateAccessToken({
+      id: user.id,
+      email: user.email,
+      isSuperAdmin: user.isSuperAdmin,
+      orgId: activeOrg?.id,
+      role: activeRole,
+    });
+
+    await this.auditService.log({
+      actorId: user.id,
+      organizationId: activeOrg?.id ?? null,
+      action: "auth.login",
+      metadata: { twoFactor: user.twoFactorEnabled },
+      ipAddress: client.ipAddress,
+    });
+
+    return this.toResponse(accessToken, user, memberships, activeOrg);
+  }
+
+  private async sendVerificationEmail(
+    userId: string,
+    client: ClientInfo,
+    email: string
+  ): Promise<void> {
+    const rawToken = this.tokenService.generateRawRefreshToken();
+    const tokenHash = this.tokenService.hashToken(rawToken);
+    const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
+
+    await this.prisma.emailVerificationToken.create({
+      data: { userId, tokenHash, expiresAt },
+    });
+
+    const verifyUrl = `${this.configService.get<string>("frontendUrl")}/verify-email?token=${rawToken}`;
+
+    await this.mailService.sendVerificationEmail({ to: email, verifyUrl });
+  }
+
+  private generateBackupCodes(): string[] {
+    const codes: string[] = [];
+    for (let i = 0; i < 8; i++) {
+      const seg = randomBytes(4).toString("hex").toUpperCase();
+      codes.push(`${seg.slice(0, 4)}-${seg.slice(4)}`);
+    }
+    return codes;
+  }
+
   private generateSlug(name: string): string {
     const base = name
       .toLowerCase()
@@ -473,7 +805,7 @@ export class AuthService {
 
   private toResponse(
     accessToken: string,
-    user: User,
+    user: any,
     memberships: AuthResponse["memberships"],
     activeOrg: Organization | null
   ): AuthResponse {
@@ -485,10 +817,11 @@ export class AuthService {
         name: user.name,
         isSuperAdmin: user.isSuperAdmin,
         emailVerified: user.emailVerified,
+        twoFactorEnabled: user.twoFactorEnabled,
         lastLoginAt: user.lastLoginAt,
         createdAt: user.createdAt,
         updatedAt: user.updatedAt,
-      },
+      } as User,
       memberships,
       activeOrg,
     };
